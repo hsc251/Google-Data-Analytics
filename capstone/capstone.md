@@ -282,10 +282,10 @@ alltrips_v3 %>%
 Please refer to the following charts for the visualization: </br>
 
 Number of Rides per Weekday Comparison </br>
-![](https://github.com/hsc251/Google_Data_Analytics/blob/main/Ride%20Count.jpg)
+![](https://github.com/hsc251/Google_Data_Analytics/blob/main/capstone/ride_count.jpg)
 
 Ride Duration Average per Weekday Comparison </br>
-![](https://github.com/hsc251/Google_Data_Analytics/blob/main/Ride%20Duration%20Avg.jpg)
+![](https://github.com/hsc251/Google_Data_Analytics/blob/main/capstone/ridetime_avg.jpg)
 
 6: Share
 ------------------

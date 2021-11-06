@@ -294,10 +294,10 @@ Ride Duration Average per Weekday Comparison </br>
 
 Based on the summaries and visuals, the following conclusions can be made.
 
-1. Members and Casual customrs do behave different, one of the biggest significant difference is that the casual rider's average ride duration is signfiicantly greater than the average of the membered customers.
+1. Members and Casual customers do behave different, one of the biggest significant difference is that the casual rider's average ride duration is significantly greater than the average of the member customers.
 2. Members have tendency to ride more frequent during the weekdays, while the casual riders ride more frequent during the weekend by the counts.
 
 After seeing this trend, perhaps the following strategy can be implemented for the casual riders to buy memberships.
 
-1. Have a cheaper rate of charge for the casual riders during the weekdays for them to persuade the change towards membershiped cyclists.
-2. Or use the more you ride, the cheaper you get approach to encourage casual riders for the membership appraoch so they can pay at a fixed rate. 
+1. Have a cheaper rate of charge for the casual riders during the weekdays for them to persuade the change for being a member cyclist.
+2. Or use the more you ride, the cheaper you get approach to encourage casual riders for the membership approach so they can pay at a fixed rate. 

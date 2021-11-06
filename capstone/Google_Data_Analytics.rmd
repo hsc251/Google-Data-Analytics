@@ -156,15 +156,15 @@ alltrips_v3 <- na.omit(alltrips_v2)
 This section will order the weekdays as required sequence, meanwhile summarizing the data 
 
 ```{R Preliminary Analysis, echo = FALSE, warning = FALSE}
-# Order the weekdays as the typical weekday sequence
+## Order the weekdays as the typical weekday sequence
 alltrips_v3$day_of_week <- ordered(alltrips_v3$day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 
-# Summarize the data based on the customer type
+## Summarize the data based on the customer type
 customer_summary <- alltrips_v3 %>%
   group_by(member_casual) %>%
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))
 
-# Summarize the data based on the combination of weekdays and customer type
+## Summarize the data based on the combination of weekdays and customer type
 weekday_summary <- alltrips_v3 %>%
   group_by(day_of_week, member_casual) %>%  
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))

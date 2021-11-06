@@ -4,7 +4,7 @@ Author: Hsin Chih (Colin) Chen </br>
 1: Synopsis
 -----------
 
-This capstone project is to use the knowledged learnt from Google Data Analytics courses to answer business questions coming from bike-share service while using supportig evidence to persuade stakeholders & executive while the decisions have to be made. </br>
+This capstone project is to use the knowledge from Google Data Analytics courses to answer business questions coming from bike-share service while using supporting evidence to persuade stakeholders & executive while the decisions have to be made. </br>
 
 The data set is located in the [dataset link](https://divvy-tripdata.s3.amazonaws.com/index.html) to download.</br>
 

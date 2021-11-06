@@ -10,6 +10,9 @@ The data set is located in the [dataset link](https://divvy-tripdata.s3.amazonaw
 
 The description and instruction can be referred from this [documentation link](https://d3c33hcgiwev3.cloudfront.net/aacF81H_TsWnBfNR_x7FIg_36299b28fa0c4a5aba836111daad12f1_DAC8-Case-Study-1.pdf?Expires=1636329600&Signature=fosweeuKEsyIJLTMV5mLDBxvxIPCQ3BeqWSi~VTbRNMdYhvG4gpADXf3LhhkYATpdC3aavxzuc-GQMx5nBwj8YKKlDZkjTmkxn9i76M3Sm7udxs09ptL544LwkUwJv2J7W54T~UMWqpjNtpFFsoKtrcYsI8sgq2SesM5-rC2nCQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A). </br>
 
+The published R-Markdown file is in [this link](https://rpubs.com/hsc251/Google_Capstone_Track1)
+
+
 2: Ask
 ------------------
 
@@ -243,7 +246,6 @@ This section will demonstrate how to plot and visualize the findings for the gra
 
 ```r
 ## Data Wrangling for the summaries within weekdays and number of rides
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -251,9 +253,7 @@ alltrips_v3 %>%
   arrange(member_casual, weekday)
   geom_col(position = "dodge")
 
-  
 ## Plot weekday's ride count by membership type
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -263,7 +263,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") + 
   ggtitle("E-Bike Memebrship Type's Ride Count Summary") +
   labs (x = "Weekdays", y = "# of Rides")
-  ggsave("Ride Count.jpg")
+  ggsave("ride_count.jpg", width = 2000, height = 1000, units = c("px"))
 
 ##  Plot weekday's average duration
 alltrips_v3 %>%
@@ -275,7 +275,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") +
   ggtitle("E-Bike Memebrship Type's Ride Duration Average") +
   labs (x = "Weekdays", y = "Ride Duration (seconds)")
-  ggsave("Ride Duration Avg.jpg")
+  ggsave("ridetime_avg.jpg", width = 2000, height = 1000, units = c("px"))
 ```
 </br>
 

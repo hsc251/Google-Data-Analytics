@@ -5,8 +5,22 @@ date: "11/5/2021"
 output: html_document
 ---
 
+# Synopsis
 
-```{r Library Loading, include=FALSE, message = FALSE, warning = FALSE}
+This capstone project is to use the knowledge from Google Data Analytics courses to answer business questions coming from bike-share service while using supporting evidence to persuade stakeholders & executive while the decisions have to be made.
+
+The data can be download in the link below:
+https://divvy-tripdata.s3.amazonaws.com/index.htm
+
+
+# Data Obtainment
+
+The data was obtained from 2020 October up to 2021 October for the bike sharing service's website, and the remaining operation and result will be based on the given time frame.
+
+Meanwhile, the original csv files were already download to the working directory. Therefore the operations would be depending on where users download the file to.
+
+This section will load the required library, load in the .csv data into the data frame and identify each table's format.
+```{r Library Loading, include = FALSE,  message = FALSE, warning = FALSE}
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
@@ -14,7 +28,7 @@ library(stats)
 library(dplyr)
 ```
 
-```{r Data Collection, include=FALSE, message = FALSE, warning = FALSE}
+```{r Data Loading, echo = FALSE, message = FALSE, warning = FALSE}
 # Load csv file into individual data frame
 Oct_2020 <- read_csv("202010-divvy-tripdata.csv")
 Nov_2020 <- read_csv("202011-divvy-tripdata.csv")
@@ -29,7 +43,9 @@ Jul_2021 <- read_csv("202107-divvy-tripdata.csv")
 Aug_2021 <- read_csv("202108-divvy-tripdata.csv")
 Sep_2021 <- read_csv("202109-divvy-tripdata.csv")
 Oct_2021 <- read_csv("202110-divvy-tripdata.csv")
+```
 
+```{r Data Format Check, include = FALSE, message = FALSE, warning = FALSE}
 # Verify column names at each data frame
 colnames(Oct_2020)
 colnames(Nov_2020)
@@ -44,9 +60,7 @@ colnames(Jul_2021)
 colnames(Aug_2021)
 colnames(Sep_2021)
 colnames(Oct_2021)
-```
 
-```{r Data Sum, include=FALSE, message = FALSE, warning = FALSE}
 ## Verify the Structure of each data frame
 str(Oct_2020)
 str(Nov_2020)
@@ -61,7 +75,16 @@ str(Jul_2021)
 str(Aug_2021)
 str(Sep_2021)
 str(Oct_2021)
+```
 
+
+# Data Cleaning & Transformation
+
+After the data are loaded, some of the data format were not the same for same columns. Therefore, transfer these variable time to be the same before cleaning NA items to ensure all data points are valid.
+
+This section will also calculate the ride length based on the transformed time frame interval. The conversion will be ensure the ride length format are in seconds.
+
+```{r Data Transform, message = FALSE, warning = FALSE}
 ## Rename the conflicted variables as character variables
 Oct_2020 <- mutate(Oct_2020, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
 Nov_2020 <- mutate(Nov_2020, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
@@ -85,7 +108,7 @@ alltrips <- alltrips %>%
   select(-c(start_lat, start_lng, end_lat, end_lng))
 ```
 
-```{R Data Clean Up, include = FALSE, message = FALSE, warning = FALSE}
+```{R Data Clean Up, message = FALSE, warning = FALSE}
 ## Inspect the dimension of data
 colnames(alltrips)
 nrow(alltrips)
@@ -128,14 +151,20 @@ alltrips_v2 <- alltrips[!(alltrips$start_station_name == "HQ QR" | alltrips$ride
 alltrips_v3 <- na.omit(alltrips_v2)
 ```
 
+# Data Analysis
+
+This section will order the weekdays as required sequence, meanwhile summarizing the data 
+
 ```{R Preliminary Analysis, echo = FALSE, warning = FALSE}
+# Order the weekdays as the typical weekday sequence
 alltrips_v3$day_of_week <- ordered(alltrips_v3$day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 
+# Summarize the data based on the customer type
 customer_summary <- alltrips_v3 %>%
   group_by(member_casual) %>%
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))
 
-
+# Summarize the data based on the combination of weekdays and customer type
 weekday_summary <- alltrips_v3 %>%
   group_by(day_of_week, member_casual) %>%  
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))
@@ -177,3 +206,14 @@ alltrips_v3 %>%
   labs (x = "Weekdays", y = "Ride Duration (seconds)")
   ggsave("Ride Duration Avg.jpg")
 ```
+
+# Summary
+Based on the visual display and the data, the following conclusion can be made for the recommendation associated with the observed trends.
+
+1. Members and Casual customers do behave different, one of the biggest significant difference is that the casual rider's average ride duration is significantly greater than the average of the member customers.
+2. Members have tendency to ride more frequent during the weekdays, while the casual riders ride more frequent during the weekend by the counts.
+
+After seeing this trend, perhaps the following strategy can be implemented for the casual riders to buy memberships.
+
+1. Have a cheaper rate of charge for the casual riders during the weekdays for them to persuade the change for being a member cyclist.
+2. Or use the more you ride, the cheaper you get approach to encourage casual riders for the membership approach so they can pay at a fixed rate. 

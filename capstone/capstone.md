@@ -10,6 +10,9 @@ The data set is located in the [dataset link](https://divvy-tripdata.s3.amazonaw
 
 The description and instruction can be referred from this [documentation link](https://d3c33hcgiwev3.cloudfront.net/aacF81H_TsWnBfNR_x7FIg_36299b28fa0c4a5aba836111daad12f1_DAC8-Case-Study-1.pdf?Expires=1636329600&Signature=fosweeuKEsyIJLTMV5mLDBxvxIPCQ3BeqWSi~VTbRNMdYhvG4gpADXf3LhhkYATpdC3aavxzuc-GQMx5nBwj8YKKlDZkjTmkxn9i76M3Sm7udxs09ptL544LwkUwJv2J7W54T~UMWqpjNtpFFsoKtrcYsI8sgq2SesM5-rC2nCQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A). </br>
 
+The published R-Markdown file is in [this link](https://rpubs.com/hsc251/Google_Capstone_Track1)
+
+
 2: Ask
 ------------------
 

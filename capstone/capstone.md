@@ -263,7 +263,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") + 
   ggtitle("E-Bike Memebrship Type's Ride Count Summary") +
   labs (x = "Weekdays", y = "# of Rides")
-  ggsave("Ride_Count.jpg")
+  ggsave("ride_count.jpg", width = 2000, height = 1000, units = c("px"))
 
 ##  Plot weekday's average duration
 alltrips_v3 %>%
@@ -275,7 +275,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") +
   ggtitle("E-Bike Memebrship Type's Ride Duration Average") +
   labs (x = "Weekdays", y = "Ride Duration (seconds)")
-  ggsave("Ride_Dur_Avg.jpg")
+  ggsave("ridetime_avg.jpg", width = 2000, height = 1000, units = c("px"))
 ```
 </br>
 

@@ -246,7 +246,6 @@ This section will demonstrate how to plot and visualize the findings for the gra
 
 ```r
 ## Data Wrangling for the summaries within weekdays and number of rides
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -254,9 +253,7 @@ alltrips_v3 %>%
   arrange(member_casual, weekday)
   geom_col(position = "dodge")
 
-  
 ## Plot weekday's ride count by membership type
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -266,7 +263,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") + 
   ggtitle("E-Bike Memebrship Type's Ride Count Summary") +
   labs (x = "Weekdays", y = "# of Rides")
-  ggsave("Ride Count.jpg")
+  ggsave("Ride_Count.jpg")
 
 ##  Plot weekday's average duration
 alltrips_v3 %>%
@@ -278,7 +275,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") +
   ggtitle("E-Bike Memebrship Type's Ride Duration Average") +
   labs (x = "Weekdays", y = "Ride Duration (seconds)")
-  ggsave("Ride Duration Avg.jpg")
+  ggsave("Ride_Dur_Avg.jpg")
 ```
 </br>
 

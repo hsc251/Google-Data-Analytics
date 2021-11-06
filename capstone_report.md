@@ -208,14 +208,14 @@ weekday_summary <- alltrips_v3 %>%
 ### 5.2: Results
 The results are as follows by customer type </br>
 
-Customer Type | Avg Ride Length (seconds) | Med Ride Length (seconds) | Min Ride Length (seconds) | Max Ride Length (seconds)
+Customer Type | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
 Casual | 1974 | 1016 | 3356649 | 0
 Member | 811 | 598 | 573467 | 0
 </br>
 
 The results are as follows by casual customers by weekdays </br>
-Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Min Ride Length (seconds) | Max Ride Length (seconds)
+Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
 Sunday | 2282 | 1185 | 3235296 | 0
 Monday | 1960 | 1016 | 1900899 | 0
@@ -227,7 +227,7 @@ Saturday | 2125 | 1135 | 3356649 | 0
 </br>
 
 The results are as follows by member customers by weekdays </br>
-Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Min Ride Length (seconds) | Max Ride Length (seconds)
+Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
 Sunday | 923 | 672 | 89995 | 0
 Monday | 777 | 572 | 89993 | 0
@@ -279,7 +279,13 @@ alltrips_v3 %>%
 ```
 </br>
 
-The Graphs will be summarized above
+Please refer to the following charts for the visualization: </br>
+
+Number of Rides per Weekday Comparison </br>
+![](https://github.com/hsc251/Google_Data_Analytics/blob/main/Ride%20Count.jpg)
+
+Ride Duration Average per Weekday Comparison </br>
+![](https://github.com/hsc251/Google_Data_Analytics/blob/main/Ride%20Duration%20Avg.jpg)
 
 6: Share
 ------------------

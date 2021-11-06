@@ -20,7 +20,7 @@ The data was obtained from 2020 October up to 2021 October for the bike sharing 
 Meanwhile, the original csv files were already download to the working directory. Therefore the operations would be depending on where users download the file to.
 
 This section will load the required library, load in the .csv data into the data frame and identify each table's format.
-```{r Library Loading, include = FALSE,  message = FALSE, warning = FALSE}
+```{r Library Loading, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
@@ -28,7 +28,7 @@ library(stats)
 library(dplyr)
 ```
 
-```{r Data Loading, echo = FALSE, message = FALSE, warning = FALSE}
+```{r Data Loading, message = FALSE, warning = FALSE}
 # Load csv file into individual data frame
 Oct_2020 <- read_csv("202010-divvy-tripdata.csv")
 Nov_2020 <- read_csv("202011-divvy-tripdata.csv")
@@ -45,7 +45,7 @@ Sep_2021 <- read_csv("202109-divvy-tripdata.csv")
 Oct_2021 <- read_csv("202110-divvy-tripdata.csv")
 ```
 
-```{r Data Format Check, include = FALSE, message = FALSE, warning = FALSE}
+```{r Data Format Check, message = FALSE, warning = FALSE}
 # Verify column names at each data frame
 colnames(Oct_2020)
 colnames(Nov_2020)
@@ -172,7 +172,6 @@ weekday_summary <- alltrips_v3 %>%
 
 ```{R Data Plotting, echo = FALSE, warning = FALSE}
 ## Data Wrangling for the summaries within weekdays and number of rides
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -180,9 +179,7 @@ alltrips_v3 %>%
   arrange(member_casual, weekday)
   geom_col(position = "dodge")
 
-  
 ## Plot weekday's ride count by membership type
-
 alltrips_v3 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
@@ -192,7 +189,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") + 
   ggtitle("E-Bike Memebrship Type's Ride Count Summary") +
   labs (x = "Weekdays", y = "# of Rides")
-  ggsave("Ride Count.jpg")
+  ggsave("ride_count.jpg", width = 2000, height = 1000, units = c("px"))
 
 ##  Plot weekday's average duration
 alltrips_v3 %>%
@@ -204,7 +201,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge") +
   ggtitle("E-Bike Memebrship Type's Ride Duration Average") +
   labs (x = "Weekdays", y = "Ride Duration (seconds)")
-  ggsave("Ride Duration Avg.jpg")
+  ggsave("ridetime_avg.jpg", width = 2000, height = 1000, units = c("px"))
 ```
 
 # Summary
